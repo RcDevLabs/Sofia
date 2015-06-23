@@ -24,11 +24,13 @@ Veja o que são cada:
 
 #### Rotas
 ---
-Localizadas em /api/routes as rotas da api estão no arquivo api.js
+Localizadas em `/api/routes`
 
-Cada rota faz referência à um verbo e a respectiva ação da entidade relacionada à rota, por exemplo:
+As rotas da api estão no arquivo `/api/routes/api.js`
 
-Rota /users, verbo get():
+Cada rota faz referência à um verbo + a respectiva ação da entidade relacionada, por exemplo:
+
+Rota */users*, verbo *get()*:
 
 ```javascript
 var Users = require('../logic/users');
@@ -37,13 +39,16 @@ router.route('/users')
 	.get(Users.index);
 ```
 
-Isso utiliza o arquivo index.js da /users, que é a lista dos controlles. No exemplo acima:
+O `require('../logic/entidade')` puxa o arquivo index.js da pasta, com a relação dos controllers.
+Os controllers ficam na subpasta `/functions` da entidade.
 
 ```javascript
 var f = require('./functions');
 
 module.exports = {
-	index: f.index
+		index: f.index
+	, create: f.create
+	, login: f.login
 };
 ```
 
@@ -52,12 +57,17 @@ module.exports = {
 
 A /api/logic/entidade contém 2 arquivos: index.js e model.js e 1 pasta: /functions.
 
-o index.js da /entidade é um `module.exports` de um objeto que contém a relação dos controllers. As funções do controllers ficam na /functions, e o model no model.js
+o index.js da /entidade é um `module.exports` de um objeto que contém a relação dos controllers.
+
+As funções do controllers ficam na /functions.
+
+O Model, no model.js
 
 #### Helpers
 ---
 
 Helpers ficam na pasta /api/logic/_helpers e são services ou factories que executam funções auxiliares (que não são exclusivas de alguma entidade específica)
+
 O index.js de uma entidade é o module.exports de seus controllers.
 Os controllers ficam dentro da /functions, na pasta da entidade.
 
