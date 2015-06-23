@@ -6,6 +6,10 @@ Estrutura de pastas:
 -------/
 ---------/api
 ------------/logic
+--------------/entidade
+-----------------index.js
+-----------------model.js
+----------------/functions
 ------------/routes
 ---------.config.json
 ```
