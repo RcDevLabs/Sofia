@@ -31,7 +31,10 @@ router.route('/users')
 	.get(Users.index);
 ```
 
-Sendo que Users é um require para pasta da entidade: `var Users = require('../logic/users');`
+Sendo que Users é um require para pasta da entidade:
+
+var Users = require('../logic/users');
+
 Isso utiliza o arquivo index.js da entidade, que é a lista dos controlles. No exemplo acima:
 
 ```javascript /logic/users/index.js
@@ -58,8 +61,144 @@ Os controllers ficam dentro da /functions, na pasta da entidade.
 
 ### Rotas Disponíveis
 ---
-
+-----------------------------------------------
 |		rota		|		verbo		|		descricao	|	nivel |
 |	/users		| post			|  post username e password para criar user | * |
 | /users		|	get				| lista users criados | *
 | /login		| post			| username e password para fazer login | *
+
+### Listagem dos Models
+
+```JSON
+"Atributo" = {
+      "idAtributo"                  : ""
+    , "idClube"                         : ""
+    , "Descricao"                       : ""
+    , "idCategoria"                 : ""
+    , "DataInclusao"                : ""
+    , "idUsuarioInclusao"       : ""
+    , "DataAlteracao"               : ""
+    , "idUsuarioAlteracao"  : ""
+    , "DataExclusao"                : ""
+    , "idUsuarioExclusao"       : ""
+},
+"AtributoJogador" = {
+      "idJogador"                       : ""
+    , "idVersao"                        : ""
+    , "idAtributo"                  : ""
+},
+"Categoria" = {
+      "idCategoria"                 : ""
+    , "Descricao"                   : ""
+    , "DataInclusao"                : ""
+    , "idUsuarioInclusao"       : ""
+    , "DataAlteracao"               : ""
+    , "idUsuarioAlteracao"  : ""
+    , "DataExclusao"                : ""
+    , "idUsuarioExclusao"       : ""
+},
+"Clube" = {
+      "idClube"                         : ""
+    , "DataFundacao"                : ""
+    , "ValorMinimoAtrib"        : ""
+    , "ValorMaximoAtrib"        : ""
+    , "DataInclusao"                : ""
+    , "idUsuarioInclusao"       : ""
+    , "DataAlteracao"               : ""
+    , "idUsuarioAlteracao"  :   ""
+    , "DataExclusao"                : ""
+    , "idUsuarioExclusao"       : ""
+},
+"Elenco" = {
+      "idElenco"                        : ""
+    , "idClube"                         : ""
+    , "Descricao"                       : ""
+},
+"ElencoJogador" = {
+      "idClube"                         : ""
+    , "idElenco"                        : ""
+    , "idJogador"                       : ""
+    , "DataInicio"                  : ""
+},
+"Especialidade" = {
+      "idEspecialidade"         : ""
+    , "idClube"                         : ""
+    , "Descricao"                       : ""
+    , "DataInclusao"                : ""
+    , "idUsuarioInclusao"       : ""
+    , "DataAlteracao"               : ""
+    , "idUsuarioAlteracao"  : ""
+    , "DataExclusao"                : ""
+    , "idUsuarioExclusao"       : ""
+},
+"EspecialidadeJogador" = {
+      "idJogador"                       : ""
+    , "idVersao"                        : ""
+    , "idEspecialidade"         : ""
+},
+"Jogador" = {
+        "idJogador"                     : ""
+    , "idClube"                         : ""
+    , "Nome"                                : ""
+    , "DataNascimento"          : ""
+    , "Peso"                                : ""
+    , "Altura"                          : ""
+    , "InicioContrato"          : ""
+    , "TerminoContrato"         : ""
+    , "Apelido"                         : ""
+    , "idPais"                          : ""
+    , "DataInclusao"                : ""
+    , "idUsuarioInclusao"       : ""
+    , "DataAlteracao"               : ""
+    , "idUsuarioAlteracao"  : ""
+    , "DataExclusao"                : ""
+    , "idUsuarioExclusao"       : ""
+},
+"Pais" = {
+        "idPais"                            : ""
+    , "Nome"                                : ""
+    , "Bandeira"                        : ""
+},
+"Perfil" = {
+        "idPerfil"                      : ""
+    , "idClube"                         : ""
+    , "Descricao"                       : ""
+},
+"Posicao" = {
+        "idPosicao"                     : ""
+    , "Nome"                                : ""
+    , "Sigla"                               : ""
+},
+"PosicaoJogador" = {
+        "idJogador"                     : ""
+    , "idPosicao"                       : ""
+    , "Nivel"                               : ""
+},
+"Usuario" = {
+        "idUsuario"                     : ""
+    , "Nome"                                : ""
+    , "Email"                               : ""
+    , "CPF"                                 : ""
+    , "DataNascimento"          : ""
+    , "DataAlteracao"               : ""
+    , "idUsuarioAlteracao"  : ""
+    , "DataExclusao"                : ""
+    , "idUsuarioExclusao"       : ""
+},
+"Versao" = {
+        "idVersao"                      : ""
+    , "idClube"                         : ""
+    , "Nome"                                : ""
+    , "InicioValidade"          : ""
+    , "DataInclusao"                : ""
+    , "idUsuarioInclusao"       : ""
+    , "DataAlteracao"               : ""
+    , "idUsuarioAlteracao"  : ""
+    , "DataExclusao"                : ""
+    , "idUsuarioExclusao"       : ""
+},
+"VinculoUsuarioPerfil" = {
+        "idUsuario"                     : ""
+    , "idPerfil"                        : ""
+}
+```

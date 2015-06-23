@@ -3,13 +3,12 @@ var router = express.Router();
 
 //entidades
 var Users = require('../logic/users');
-
-//var checkToken = require('../logic/_helpers/checkToken');
+var checkJWT = require('../logic/_helpers/checkJWT');
 
 router.route('/users')
-	.get(Users.index)
+	.get(checkJWT, Users.index)
 	.post(Users.create);
 router.route('/login')
 	.post(Users.login);
-	
+
 module.exports = router;
