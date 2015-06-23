@@ -26,7 +26,7 @@ Cada rota faz referência à um verbo e a respectiva ação da entidade relacion
 
 Rota /users, verbo get():
 
-```javascript  [api.js]
+```javascript
 router.route('/users')
 	.get(Users.index);
 ```
