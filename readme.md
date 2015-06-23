@@ -27,17 +27,15 @@ Cada rota faz referência à um verbo e a respectiva ação da entidade relacion
 Rota /users, verbo get():
 
 ```javascript
+var Users = require('../logic/users');
+
 router.route('/users')
 	.get(Users.index);
 ```
 
-Sendo que Users é um require para pasta da entidade:
+Isso utiliza o arquivo index.js da /users, que é a lista dos controlles. No exemplo acima:
 
-var Users = require('../logic/users');
-
-Isso utiliza o arquivo index.js da entidade, que é a lista dos controlles. No exemplo acima:
-
-```javascript /logic/users/index.js
+```javascript
 var f = require('./functions');
 
 module.exports = {
