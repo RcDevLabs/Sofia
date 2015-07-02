@@ -23,12 +23,23 @@
 ---
 
 1. /users 
-	-> `.post()` cria novo user com username e password
-	-> `.get()` lista user (verifica se está logado E se é admin)
+
+	- `.post()` cria novo user com username e password
+
+	- `.get()` lista user (verifica se está logado E se é admin)
 
 2. /profiles/:id
- -> `.post()` com USERID para criar
- -> `.get()` com PROFILEID para visualizar single
+ 
+ - `.post()` com USERID para criar
+ 
+ - `.get()` com PROFILEID para visualizar single
+
+|    ROUTE    |   VERB   |  			 PARAMS	 				  |
+|-------------|----------|--------------------------|
+|	/users      |   POST	 | username, password				|
+|-------------|----------|--------------------------|
+|	/user/:id		|   POST	 |                          |
+|-------------|----------|--------------------------
 
 
  ## TODO: Criar .get do `/user/:id`
