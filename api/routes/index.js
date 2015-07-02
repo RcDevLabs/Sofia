@@ -4,6 +4,7 @@ var router = express.Router();
 //entidades
 var Users = require('../logic/users');
 var UserProfile = require('../logic/userProfiles');
+var Me = require('../logic/me');
 
 // helpers
 var checkJWT = require('../logic/_helpers/checkJWT');
@@ -19,5 +20,7 @@ router.route('/profile/:id')
 	.get(UserProfile.read);
 router.route('/login')
 	.post(Users.login);
+router.route('/me')
+	.get(checkJWT, Me.index)
 
 module.exports = router;
