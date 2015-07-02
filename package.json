@@ -1,7 +1,7 @@
 {
-	"name": "sportindex-api",
+	"name": "Sofia",
   "version": "0.0.1",
-  "description": "API para sportIndex",
+  "description": "Sofia - RESTfull API with MongoDB and NodeJs Starter project",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
