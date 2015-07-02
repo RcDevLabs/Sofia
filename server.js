@@ -8,9 +8,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;
-
-var apiRoutes = require('./api/routes/api.js');
-app.use('/api', apiRoutes);
+var api = {};
+		api.routes = require('./api/routes/index.js');
+app.use('/api', api.routes);
 
 app.listen(port);
 console.log('Api rodando na porta ', port);

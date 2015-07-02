@@ -1,216 +1,34 @@
-### API RESTfull SportIndex
+## Sofia - RCDev's Restfull, JWT Authed, API Starter Project with MondoDB and ExpressJS
 ---
 
-Estrutura de pastas:
-```terminal
--------/
----------/api
-------------/logic
---------------/entidade
------------------index.js
------------------model.js
-----------------/functions
-------------/routes
----------.config.json
+1. Copiar o arquivo `config.json.sample` para `config.json`, alterando parâmetros de configuração necessários.
+
+2. `npm install`
+
+3. `node server`
+
+```
+---/
+-----/api
+--------/logic
+----------/entidade
+-------------index.js
+-------------model.js
+------------/functions
+--------/routes
+-----.config.json
 ```
 
-> É necessária a configuração do config.json
-
-Na pasta /api temos a pasta /routes que contém as rotas disponíveis, bem como eventuais limites de acesso.
-
-Na pasta /logic temos as entidades (ex: /users) e também a /_helpers que são funções genéricas.
-
-Veja o que são cada:
-
-#### Rotas
----
-Localizadas em `/api/routes`
-
-As rotas da api estão no arquivo `/api/routes/api.js`
-
-Cada rota faz referência à um verbo + a respectiva ação da entidade relacionada, por exemplo:
-
-Rota */users*, verbo *get()*:
-
-```javascript
-var Users = require('../logic/users');
-
-router.route('/users')
-	.get(Users.index);
-```
-
-O `require('../logic/entidade')` puxa o arquivo index.js da pasta, com a relação dos controllers.
-Os controllers ficam na subpasta `/functions` da entidade.
-
-```javascript
-var f = require('./functions');
-
-module.exports = {
-		index: f.index
-	, create: f.create
-	, login: f.login
-};
-```
-
-#### Entidades
+#### Rotas Padrão
 ---
 
-A /api/logic/entidade contém 2 arquivos: index.js e model.js e 1 pasta: /functions.
+1. /users 
+	-> `.post()` cria novo user com username e password
+	-> `.get()` lista user (verifica se está logado E se é admin)
 
-o index.js da /entidade é um `module.exports` de um objeto que contém a relação dos controllers.
+2. /profiles/:id
+ -> `.post()` com USERID para criar
+ -> `.get()` com PROFILEID para visualizar single
 
-As funções do controllers ficam na /functions.
 
-O Model, no model.js
-
-#### Helpers
----
-
-Helpers ficam na pasta /api/logic/_helpers e são services ou factories que executam funções auxiliares (que não são exclusivas de alguma entidade específica)
-
-O index.js de uma entidade é o module.exports de seus controllers.
-Os controllers ficam dentro da /functions, na pasta da entidade.
-
-### Rotas Disponíveis
----
------------------------------------------------
-|		rota		|		verbo		|		descricao	|	nivel |
-|	/users		| post			|  post username e password para criar user | * |
-| /users		|	get				| lista users criados | *
-| /login		| post			| username e password para fazer login | *
-
-### Listagem dos Models
-
-```JSON
-"Atributo" = {
-      "idAtributo"                  : ""
-    , "idClube"                         : ""
-    , "Descricao"                       : ""
-    , "idCategoria"                 : ""
-    , "DataInclusao"                : ""
-    , "idUsuarioInclusao"       : ""
-    , "DataAlteracao"               : ""
-    , "idUsuarioAlteracao"  : ""
-    , "DataExclusao"                : ""
-    , "idUsuarioExclusao"       : ""
-},
-"AtributoJogador" = {
-      "idJogador"                       : ""
-    , "idVersao"                        : ""
-    , "idAtributo"                  : ""
-},
-"Categoria" = {
-      "idCategoria"                 : ""
-    , "Descricao"                   : ""
-    , "DataInclusao"                : ""
-    , "idUsuarioInclusao"       : ""
-    , "DataAlteracao"               : ""
-    , "idUsuarioAlteracao"  : ""
-    , "DataExclusao"                : ""
-    , "idUsuarioExclusao"       : ""
-},
-"Clube" = {
-      "idClube"                         : ""
-    , "DataFundacao"                : ""
-    , "ValorMinimoAtrib"        : ""
-    , "ValorMaximoAtrib"        : ""
-    , "DataInclusao"                : ""
-    , "idUsuarioInclusao"       : ""
-    , "DataAlteracao"               : ""
-    , "idUsuarioAlteracao"  :   ""
-    , "DataExclusao"                : ""
-    , "idUsuarioExclusao"       : ""
-},
-"Elenco" = {
-      "idElenco"                        : ""
-    , "idClube"                         : ""
-    , "Descricao"                       : ""
-},
-"ElencoJogador" = {
-      "idClube"                         : ""
-    , "idElenco"                        : ""
-    , "idJogador"                       : ""
-    , "DataInicio"                  : ""
-},
-"Especialidade" = {
-      "idEspecialidade"         : ""
-    , "idClube"                         : ""
-    , "Descricao"                       : ""
-    , "DataInclusao"                : ""
-    , "idUsuarioInclusao"       : ""
-    , "DataAlteracao"               : ""
-    , "idUsuarioAlteracao"  : ""
-    , "DataExclusao"                : ""
-    , "idUsuarioExclusao"       : ""
-},
-"EspecialidadeJogador" = {
-      "idJogador"                       : ""
-    , "idVersao"                        : ""
-    , "idEspecialidade"         : ""
-},
-"Jogador" = {
-        "idJogador"                     : ""
-    , "idClube"                         : ""
-    , "Nome"                                : ""
-    , "DataNascimento"          : ""
-    , "Peso"                                : ""
-    , "Altura"                          : ""
-    , "InicioContrato"          : ""
-    , "TerminoContrato"         : ""
-    , "Apelido"                         : ""
-    , "idPais"                          : ""
-    , "DataInclusao"                : ""
-    , "idUsuarioInclusao"       : ""
-    , "DataAlteracao"               : ""
-    , "idUsuarioAlteracao"  : ""
-    , "DataExclusao"                : ""
-    , "idUsuarioExclusao"       : ""
-},
-"Pais" = {
-        "idPais"                            : ""
-    , "Nome"                                : ""
-    , "Bandeira"                        : ""
-},
-"Perfil" = {
-        "idPerfil"                      : ""
-    , "idClube"                         : ""
-    , "Descricao"                       : ""
-},
-"Posicao" = {
-        "idPosicao"                     : ""
-    , "Nome"                                : ""
-    , "Sigla"                               : ""
-},
-"PosicaoJogador" = {
-        "idJogador"                     : ""
-    , "idPosicao"                       : ""
-    , "Nivel"                               : ""
-},
-"Usuario" = {
-        "idUsuario"                     : ""
-    , "Nome"                                : ""
-    , "Email"                               : ""
-    , "CPF"                                 : ""
-    , "DataNascimento"          : ""
-    , "DataAlteracao"               : ""
-    , "idUsuarioAlteracao"  : ""
-    , "DataExclusao"                : ""
-    , "idUsuarioExclusao"       : ""
-},
-"Versao" = {
-        "idVersao"                      : ""
-    , "idClube"                         : ""
-    , "Nome"                                : ""
-    , "InicioValidade"          : ""
-    , "DataInclusao"                : ""
-    , "idUsuarioInclusao"       : ""
-    , "DataAlteracao"               : ""
-    , "idUsuarioAlteracao"  : ""
-    , "DataExclusao"                : ""
-    , "idUsuarioExclusao"       : ""
-},
-"VinculoUsuarioPerfil" = {
-        "idUsuario"                     : ""
-    , "idPerfil"                        : ""
-}
-```
+ ## TODO: Criar .get do `/user/:id`

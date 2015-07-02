@@ -6,10 +6,18 @@ var UsuarioSchema = new mongoose.Schema({
     type: String,
     unique: true,
     required: true
-  },
-  password: {
+  }
+  , password: {
     type: String,
     required: true
+  }
+  , usrLvl: {
+    type: String,
+    default: 'user'
+  }
+  , profileModel: {
+    type: mongoose.Schema.Types.ObjectId
+    , ref: 'UserProfile'
   }
 });
 //2

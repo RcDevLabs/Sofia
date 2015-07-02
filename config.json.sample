@@ -3,7 +3,11 @@
 	"development":{
 		"secret"		: "hFaTsmf1CeJ9fwe0zirTb48yeapCqXip",
 		"expiration": 1, 
-		"db"				: "mongodb://xxxxx:xxxxxx@xxxxxxx.mongolab.com:47692/xxxxx"
+		"db"				: "mongodb://xxxxx:xxxxxx@xxxxxxx.mongolab.com:47692/xxxxx",
+		"usrLvl" 		: {
+			"admin": "admin",
+			"editor": "editor"
+		}
 	},
 	"production":{
 
