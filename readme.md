@@ -1,4 +1,4 @@
-## Sofia - RCDev's Restfull, JWT Authed, API Starter Project with MondoDB and ExpressJS
+## Sofia - RCDev's Restfull, JWT Authed, API Starter Project with MongoDB and ExpressJS
 ---
 
 1. Copiar o arquivo `config.json.sample` para `config.json`, alterando parâmetros de configuração necessários.
