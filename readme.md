@@ -34,13 +34,13 @@
  
  - `.get()` com PROFILEID para visualizar single
 
-|    ROUTE    |   VERB   |  			 PARAMS	 				  |
-|-------------|----------|--------------------------|
-|	/login      |   POST	 | username, password				|
-|	/users      |   POST	 | username, password				|
-|	/users			|   GET		 |                          |
-|	/user/:id		|   GET		 |                          |
-|/profile/:id |   POST   | :id = userID             |
-|/profile/:id |   GET    | :id = profileID          |
+|ROUTE|VERB|PARAMS|Description|
+|-----|----|------|-----------|
+|	/login      |   POST	 | username, password| Logs in and gets token
+|	/users      |   POST	 | username, password				| Creates new user
+|	/users			|   GET		 |  x-access-token          | List users (admin only)
+|	/user/:id	|  GET | x-access-token   | Gets user info
+|/profile/:id |   POST   | :id = userID  | creates new profile from userID and attaches it to users schema
+|/profile/:id |   GET    | :id = profileID          | show profile + user schema's info
 
  ## TODO: Criar .get do `/user/:id`
