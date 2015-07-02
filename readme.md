@@ -42,5 +42,6 @@
 |	/user/:id	|  GET | x-access-token   | Gets user info
 |/profile/:id |   POST   | :id = userID  | creates new profile from userID and attaches it to users schema
 |/profile/:id |   GET    | :id = profileID          | show profile + user schema's info
+|/me |   GET    |           | shows self information (logged in only)
 
  ## TODO: Criar .get do `/user/:id`
