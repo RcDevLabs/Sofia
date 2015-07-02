@@ -37,16 +37,10 @@
 |    ROUTE    |   VERB   |  			 PARAMS	 				  |
 |-------------|----------|--------------------------|
 |	/login      |   POST	 | username, password				|
--
 |	/users      |   POST	 | username, password				|
--							|				 	 |													|
 |	/users			|   GET		 |                          |
--
 |	/user/:id		|   GET		 |                          |
--
 |/profile/:id |   POST   | :id = userID             |
--
 |/profile/:id |   GET    | :id = profileID          |
--
 
  ## TODO: Criar .get do `/user/:id`
