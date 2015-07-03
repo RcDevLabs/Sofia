@@ -24,8 +24,26 @@ UserProfileSchema.pre('save', function(next) {
   //o presave do UserProfile vai verificar se houve alteração ou 
   //inclusao de userModel. Caso isso tenha acontecido, é necessário
   // acessar o model User e atualizar o campo profileModel
-  var user = this;
-  next();
+  var profile = this;
+  console.log('pre save do profile!');
+  User.findById({_id: profile.userModel })
+    .exec(function(err, data){
+    console.log('procurando por id: ' + profile.userModel);
+    if(data){
+      console.log('Achamos!', data);
+      if(data.profileModel == null || data.profileModel == '' || data.profileModel.length < 2) {
+        console.log('Encontrado usuario, sem profileModel!')
+        next();
+      } else {
+        console.log('Encontrado usuario, mas JA TEM PROFILE MODEL')
+        var err = new Error({err: 'Error: Users got profile. Cant create another one for same user.'});
+        return next(err);
+      }
+    }
+    if(err){
+      next(err);
+    }
+  })
 });
 UserProfileSchema.post('save', function (profile, next) {
   User.findById({_id: profile.userModel}, function(err, data){
