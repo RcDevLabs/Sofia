@@ -1,4 +1,5 @@
 ## Sofia - RCDev's Restfull, JWT Authed, API Starter Project with MongoDB and ExpressJS
+_fits well with [rc-gen model, controller, route generator](https://github.com/RcDevLabs/RC-GEN)_
 ---
 
 1. Copiar o arquivo `config.json.sample` para `config.json`, alterando parâmetros de configuração necessários.
@@ -18,6 +19,8 @@
 --------/routes
 -----.config.json
 ```
+
+_Combina com [rc-gen model, controller, route generator](https://github.com/RcDevLabs/RC-GEN)_
 
 #### Rotas Padrão
 ---
