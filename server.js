@@ -12,6 +12,7 @@ var api = {};
 		api.routes = require('./api/routes/index.js');
 app.use('/api', api.routes);
 
+app.use('/api', preFlight)
 app.listen(port);
 console.log('Api rodando na porta ', port);
 
