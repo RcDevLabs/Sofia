@@ -1,15 +1,17 @@
-var express = require('express')
-	, app = express()
-	, bodyParser = require('body-parser')
-	, mongoose = require("mongoose")
-	, cfg = require("./config.json");
+var express = require('express'),
+	app = express(),
+	bodyParser = require('body-parser'),
+	mongoose = require("mongoose"),
+	cfg = require("./config.json"),
+	preFlight = require('./api/logic/_helpers/preFlight');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;
 var api = {};
-		api.routes = require('./api/routes/index.js');
+
+api.routes = require('./api/routes/index.js');
 app.use('/api', api.routes);
 
 app.use('/api', preFlight)
